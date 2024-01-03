@@ -81,7 +81,7 @@ app.post("/signup", async (req, res) => {
       [email, hashedPasword]
     );
 
-    const token = jwt.sign({ email, password }, "secret", { expiresIn: "1hr" });
+    const token = jwt.sign({ email, password }, "secret", { expiresIn: "5hr" });
     res.json({ email, token });
   } catch (error) {
     console.log(error);
@@ -105,7 +105,7 @@ app.post("/login", async (req, res) => {
       password,
       users.rows[0].hashed_password
     );
-    const token = jwt.sign({ email }, "secret", { expiresIn: "1hr" });
+    const token = jwt.sign({ email }, "secret", { expiresIn: "5hr" });
     if (success) {
       res.json({ email: users.rows[0].email, token });
     } else {
