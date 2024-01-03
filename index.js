@@ -2,7 +2,7 @@ const express = require("express");
 const pool = require("./db");
 const cors = require("cors");
 const { v4: uuidv4 } = require("uuid");
-const PORT = process.env.PORT ?? 8000;
+// const PORT = process.env.PORT ?? 8000;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const app = express();
@@ -115,4 +115,4 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
+app.listen(process.env.PORT, () => console.log(`Server is running on PORT ${process.env.PORT}`));
