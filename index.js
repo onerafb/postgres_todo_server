@@ -3,7 +3,7 @@ const pool = require("./db");
 const cors = require("cors");
 const { v4: uuidv4 } = require("uuid");
 // const PORT = process.env.PORT ?? 8000;
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const app = express();
 app.use(cors());
@@ -68,7 +68,8 @@ app.delete("/todos/:id", async (req, res) => {
     console.log(error);
   }
 });
-
+// var salt = bcrypt.genSaltSync(10);
+// var hash = bcrypt.hashSync("B4c0/\/", salt);
 //signup
 app.post("/signup", async (req, res) => {
   const { email, password } = req.body;
